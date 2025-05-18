@@ -1,4 +1,5 @@
 #!/bin/bash
+# Adaptado de @GuiDavilaP #
 
 # Garante que estamos no diretório correto
 cd "$(dirname "$0")/.."

@@ -15,7 +15,7 @@ public:
     Tournament(istream& input);
     
     void printData() const;
-    bool checkInitialConditions();
+    bool initialCheck();
     Graph buildFlowGraph() const;
     int totalRemainingGames() const;
     bool canTeam1Win();

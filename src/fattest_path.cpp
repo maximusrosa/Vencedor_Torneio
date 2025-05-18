@@ -19,7 +19,6 @@ bool fattestPath(Graph& g, int source, int sink, vector<bool>& visited, vector<E
     inQueue[source] = true; // Mark source as in queue
 
     while (!maxHeap.isEmpty()) {
-        // Extrair o máximo em vez de usar top() e pop()
         pair<int, int> curr = maxHeap.extractMax();
         int u = curr.first;  // node
         int currBottleneck = curr.second;  // bottleneck value

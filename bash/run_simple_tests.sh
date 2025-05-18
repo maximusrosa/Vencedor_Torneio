@@ -1,4 +1,5 @@
 #!/bin/bash
+# Adaptado de @GuiDavilaP #
 
 # Garante que o script seja executado a partir do diretório correto
 cd "$(dirname "$0")/.."

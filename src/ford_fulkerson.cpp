@@ -17,10 +17,7 @@ int fordFulkerson(Graph& g) {
     int numVertices = g.getNumVertices();
     int maxFlow = 0;
 
-    int numIterations = 0;
     while (true) {
-        numIterations++;
-
         visited.assign(numVertices, false);
 
         path.clear();

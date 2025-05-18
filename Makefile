@@ -2,7 +2,6 @@
 CXX = g++
 CXXFLAGS = -Wall -Wextra -std=c++17 -I include/
 
-
 # Folders
 SRC_DIR = src
 INC_DIR = include

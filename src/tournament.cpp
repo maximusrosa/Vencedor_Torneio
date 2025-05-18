@@ -32,7 +32,13 @@ void Tournament::printData() const {
     }
 }
 
-bool Tournament::checkInitialConditions() {
+/* Esta verificação simplesmente avalia se:
+
+Cada outro time poderia perder jogos suficientes para ficar com menos vitórias que o time 1
+É uma condição matemática simples: se algum time já ultrapassou o número máximo possível de 
+vitórias do time 1, então o time 1 não pode vencer de forma alguma. */
+
+bool Tournament::initialCheck() {
     int remainingGamesTeam1 = 0;
 
     for (int j = 1; j < numTeams; j++) remainingGamesTeam1 += games[0][j];
@@ -96,11 +102,15 @@ int Tournament::totalRemainingGames() const {
 }
 
 bool Tournament::canTeam1Win() {
-    if (!checkInitialConditions()) return false;
+    if (!initialCheck()) return false;
 
     Graph flowGraph = buildFlowGraph();
     int maxFlow = fordFulkerson(flowGraph);
     int totalGames = totalRemainingGames();
 
+    // Se o fluxo máximo for igual ao número total de jogos restantes 
+    // (excluindo os jogos do time 1), isso significa que o time 1 
+    // pode vencer todos os jogos restantes e ainda ter mais vitórias 
+    // do que qualquer outro time.
     return maxFlow == totalGames;
 }
